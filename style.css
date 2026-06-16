@@ -1,0 +1,376 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    min-height: 100vh;
+    /* Clean placeholder background styling similar to the cloud/star image */
+   background:
+linear-gradient(rgba(0,0,0,0.25), rgba(0,0,0,0.25)),
+url('https://images.unsplash.com/photo-1504608524841-42fe6f032b4b?w=1920') no-repeat center center/cover;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.app-container {
+    width: 100%;
+    max-width: 1300px;
+}
+
+/* Glassmorphism Card Style Base */
+.card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Search Header Styling */
+.search-section {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+}
+
+.search-bar {
+    display: flex;
+    align-items: center;
+    background: #ffffff;
+    border-radius: 30px;
+    width: 100%;
+    max-width: 600px;
+    padding: 6px 15px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.search-bar input {
+    flex: 1;
+    border: none;
+    outline: none;
+    padding: 8px;
+    font-size: 16px;
+    color: #333;
+}
+
+.search-bar button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 18px;
+    color: #333;
+    padding: 5px;
+    transition: transform 0.2s;
+}
+
+.search-bar button:hover {
+    transform: scale(1.1);
+}
+
+/* Layout Dashboard Grid System */
+.dashboard-grid {
+    display: grid;
+    grid-template-columns: 1fr 2.5fr;
+    gap: 20px;
+}
+
+.left-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.right-panel {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+/* Main Overview Box details */
+.main-weather h1 {
+    font-size: 32px;
+    font-weight: 400;
+    margin-bottom: 5px;
+}
+
+.temp-display {
+    font-size: 48px;
+    font-weight: 300;
+    margin-bottom: 5px;
+}
+
+#sky-desc {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.divider {
+    border: 0;
+    height: 1px;
+    background: rgba(255,255,255,0.2);
+    margin: 20px 0;
+}
+
+.date-time p {
+    margin: 8px 0;
+    font-size: 15px;
+}
+
+.date-time i {
+    margin-right: 8px;
+}
+
+/* Coming 5 Days panel */
+.forecast-card{
+    height: fit-content;
+    min-height: unset;
+}
+
+.forecast-card h3 {
+    font-weight: 500;
+    margin-bottom: 15px;
+}
+.forecast-list{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.forecast-item{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 8px 0;
+}
+
+.forecast-item img{
+    width: 40px;
+    height: 40px;
+}
+
+.forecast-item p{
+    margin: 0;
+}
+
+.forecast-item p:nth-child(1){
+    width: 50px;
+}
+
+.forecast-item p:nth-child(3){
+    flex: 1;
+    text-transform: capitalize;
+}
+
+.forecast-item p:nth-child(4){
+    font-weight: 600;
+    min-width: 60px;
+    text-align: right;
+}
+
+/* Right Side Metric Blocks Layout */
+.metrics-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 15px;
+}
+
+.metric-box {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    padding: 15px;
+}
+
+.metric-icon {
+    background: #ffffff;
+    color: #333;
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+}
+
+.metric-info span {
+    font-size: 13px;
+    opacity: 0.8;
+}
+
+.metric-info h4 {
+    font-size: 18px;
+    margin-top: 2px;
+}
+
+/* Bottom Feature Section Row */
+.features-row {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 20px;
+}
+
+.features-row h3 {
+    font-size: 16px;
+    font-weight: 400;
+    margin-bottom: 15px;
+    opacity: 0.9;
+}
+
+/* AQI Box Details styling */
+.aqi-container {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    margin-top: 10px;
+}
+
+.aqi-icon-main {
+    background: #ffffff;
+    color: #333;
+    width: 45px;
+    height: 45px;
+    border-radius: 4px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 22px;
+}
+
+.aqi-metrics {
+    display: flex;
+    gap: 25px;
+    flex: 1;
+    justify-content: space-around;
+}
+
+.aqi-metrics div {
+    text-align: center;
+}
+
+.aqi-metrics span {
+    font-size: 12px;
+    opacity: 0.7;
+    display: block;
+    margin-bottom: 4px;
+}
+
+.aqi-metrics p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+/* Sunrise & Sunset styling */
+.sun-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.sun-item {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.sun-img-wrapper {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+}
+
+.sunrise-bg { color: #ffb703; }
+.sunset-bg { color: #fdf0d5; }
+
+.sun-item span {
+    font-size: 12px;
+    opacity: 0.7;
+}
+
+.sun-item p {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+.today-label {
+    margin-top: 10px;
+    font-size: 18px;
+    font-weight: 400;
+}
+
+.today-content {
+    margin-top: 12px;
+    padding: 16px;
+    border-radius: 18px;
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(10px);
+}
+
+.today-summary {
+    display: grid;
+    gap: 12px;
+}
+
+.today-summary-text {
+    margin: 0;
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.today-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.today-row:last-child {
+    border-bottom: none;
+}
+
+.today-row span {
+    font-size: 14px;
+    opacity: 0.75;
+}
+
+.today-row strong {
+    font-size: 16px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    .metrics-row {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    .features-row {
+        grid-template-columns: 1fr;
+    }
+}
+.today-content{
+    width: 100%;
+    height: 400px;
+    position: relative;
+    padding: 15px;
+}
+
+#tempChart{
+    width: 100% !important;
+    height: 100% !important;
+}

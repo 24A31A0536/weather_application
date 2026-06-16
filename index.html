@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Glassmorphism Weather App</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for the clean icons shown in the screenshot -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Top Search Bar -->
+        <header class="search-section">
+            <div class="search-bar">
+                <input type="text" id="city-input" placeholder="Search City">
+                <button id="search-btn"><i class="fa-solid fa-magnifying-glass"></i></button>
+            </div>
+        </header>
+
+        <!-- Main Dashboard Grid Grid Layout -->
+        <main class="dashboard-grid">
+            
+            <!-- Left Panel: Main City Overview -->
+            <section class="left-panel">
+                <div class="card main-weather">
+                    <h1 id="city-name">City Name</h1>
+                    <div class="temp-display"><span id="temperature">-</span>°C</div>
+                    <p id="sky-desc">Sky Description</p>
+                    <hr class="divider">
+                    <div class="date-time">
+                        <p><i class="fa-regular fa-calendar-days"></i> Date: <span id="current-date">-</span></p>
+                        <p><i class="fa-regular fa-clock"></i> Time: <span id="current-time">-</span></p>
+                    </div>
+                </div>
+                <div class="card forecast-card">
+                    <h3>Coming 5 Days</h3>
+                    <div id="five-day-forecast" class="forecast-list">
+                        <!-- Forecast items will look like this dynamically -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Right Panel: Weather Details Matrix -->
+            <section class="right-panel">
+                
+                <!-- Top Metrics Row -->
+                <div class="metrics-row">
+                    <div class="card metric-box">
+                        <div class="metric-icon"><i class="fa-solid fa-droplet"></i></div>
+                        <div class="metric-info">
+                            <span>Humidity</span>
+                            <h4 id="humidity">-</h4>
+                        </div>
+                    </div>
+                    <div class="card metric-box">
+                        <div class="metric-icon"><i class="fa-solid fa-wind"></i></div>
+                        <div class="metric-info">
+                            <span>Pressure</span>
+                            <h4 id="pressure">-</h4>
+                        </div>
+                    </div>
+                    <div class="card metric-box">
+                        <div class="metric-icon"><i class="fa-solid fa-temperature-half"></i></div>
+                        <div class="metric-info">
+                            <span>Feels like</span>
+                            <h4 id="feels-like">-</h4>
+                        </div>
+                    </div>
+                    <div class="card metric-box">
+                        <div class="metric-icon"><i class="fa-regular fa-eye"></i></div>
+                        <div class="metric-info">
+                            <span>Visibility</span>
+                            <h4 id="visibility">-</h4>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Bottom Feature Row -->
+                <div class="features-row">
+                    <!-- Air Quality Index Box -->
+                    <div class="card aqi-box">
+                        <h3>Air Quality Index (AQI)</h3>
+                        <div class="aqi-container">
+                            <div class="aqi-icon-main"><i class="fa-solid fa-wind"></i></div>
+                            <div class="aqi-metrics">
+                                <div><span>CO</span><p id="aqi-co">-</p></div>
+                                <div><span>SO2</span><p id="aqi-so2">-</p></div>
+                                <div><span>O3</span><p id="aqi-o3">-</p></div>
+                                <div><span>NO2</span><p id="aqi-no2">-</p></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sunrise & Sunset Box -->
+                    <div class="card sun-box">
+                        <h3>Sunrise & Sunset</h3>
+                        <div class="sun-container">
+                            <div class="sun-item">
+                                <div class="sun-img-wrapper sunrise-bg"><i class="fa-solid fa-sun"></i></div>
+                                <div>
+                                    <span>Sunrise</span>
+                                    <p id="sunrise-time">-:-- Am</p>
+                                </div>
+                            </div>
+                            <div class="sun-item">
+                                <div class="sun-img-wrapper sunset-bg"><i class="fa-solid fa-moon"></i></div>
+                                <div>
+                                    <span>Sunset</span>
+                                    <p id="sunset-time">-:-- Pm</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lower section label matching screenshot -->
+                <div class="today-label">Today</div>
+                <div id="today-content" class="today-content">
+                    <canvas id="tempChart"></canvas>
+                </div>
+            </section>
+        </main>
+    </div>
+    <script src="script.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
